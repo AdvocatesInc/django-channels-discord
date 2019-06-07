@@ -1,9 +1,9 @@
 import os
 from setuptools import setup, find_packages
 
-from channels_irc import __version__
+from channels_discord import __version__
 
-readme = os.path.join(os.path.dirname(__file__), 'PYPI_README.rst')
+readme = os.path.join(os.path.dirname(__file__), 'README.md')
 
 setup(
     name='channels_discord',
@@ -18,8 +18,8 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'discord>=1.1.1',
-        'channels>=2.0.2',
+        'discord.py>=1.1.1',
+        'channels>=2.2.0',
     ],
     entry_points={'console_scripts': [
         'channels-discord = channels_discord.cli:CLI.entrypoint'

@@ -1,0 +1,5 @@
+# Build Files #
+###############
+channels_discord.egg-info/
+build/
+dist/

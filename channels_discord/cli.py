@@ -1,7 +1,12 @@
+import os
+import sys
 import argparse
 import logging
+import importlib
 
 from .client import ChannelsDiscordClient
+
+logger = logging.getLogger(__name__)
 
 
 class CLI(object):
@@ -66,4 +71,4 @@ class CLI(object):
             application = getattr(application_module, part)
 
         client = ChannelsDiscordClient(application)
-        client.run(token=args.token)
+        client.run(args.token)
