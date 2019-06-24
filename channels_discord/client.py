@@ -79,8 +79,9 @@ class ChannelsDiscordClient(Client):
         # try fetching from local cache
         user = self.get_user(user_id)
 
-        # if user is None:
-            # user = await self.fetch_user(user_id)
+        # If user info is not cached, try getting from the API
+        if user is None:
+            user = await self.fetch_user(user_id)
 
         if user is not None:
             logger.debug('USER EXISTS')
