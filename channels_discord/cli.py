@@ -64,6 +64,14 @@ class CLI(object):
             format="%(asctime)-15s %(levelname)-8s %(message)s",
         )
 
+        # suppress logs from imported libraries to desired level
+        if args.verbosity < 2:
+            disable = {
+                0: logging.INFO,
+                1: logging.DEBUG,
+            }[args.verbosity]
+            logging.disable(disable)
+
         # import the channel layer
         asgi_module, application_path = args.application.split(':', 1)
         application_module = importlib.import_module(asgi_module)
