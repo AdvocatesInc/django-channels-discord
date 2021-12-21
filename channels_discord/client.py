@@ -84,5 +84,25 @@ class ChannelsDiscordClient(Client):
             user = await self.fetch_user(user_id)
 
         if user is not None:
-            logger.debug('USER EXISTS')
             await user.send(content=text)
+
+    async def _handle_send_to_channel(self, message):
+        """
+        Sends a direct message to a channel, based on channel id
+        """
+        channel_id = message.get('channel_id')
+        text = message.get('text')
+
+        assert channel_id is not None and text is not None, (
+            "Sending a DM requires both `channel_id` and `text` keys"
+        )
+
+        # try fetching from local cache
+        channel = self.get_channel(channel_id)
+
+        # if channel is not cached, try getting from the API
+        if channel is None:
+            channel = await self.fetch_channel(channel_id)
+
+        if channel is not None:
+            await channel.send(content=text)

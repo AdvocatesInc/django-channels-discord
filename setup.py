@@ -18,7 +18,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'discord.py>=1.3.4',
+        'discord.py>=1.7.3',
         'channels>=2.2.0',
     ],
     entry_points={'console_scripts': [

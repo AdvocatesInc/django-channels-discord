@@ -1,5 +1,9 @@
+import logging
+
 from channels.consumer import AsyncConsumer
 from channels.exceptions import InvalidChannelLayerError, StopConsumer
+
+logger = logging.getLogger(__name__)
 
 
 class DiscordConsumer(AsyncConsumer):
