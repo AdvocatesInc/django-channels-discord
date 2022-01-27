@@ -22,12 +22,14 @@ class ChannelsDiscordClient(Client):
         Handles creating the ASGI application and instatiating the
         send Queue
         """
-        application_instance = self.application(scope={'type': 'discord'})
         self.application_queue = asyncio.Queue()
-        self.application_instance = asyncio.ensure_future(application_instance(
-                receive=self.application_queue.get,
-                send=self.from_consumer
-            ), loop=self.loop
+        application_instance = self.application(
+            scope={'type': 'discord'},
+            receive=self.application_queue.get,
+            send=self.from_consumer
+        )
+        self.application_instance = asyncio.ensure_future(
+            application_instance, loop=self.loop
         )
 
     def to_application(self, message):

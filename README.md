@@ -6,7 +6,7 @@ This project is more of a stub right now, and will be more further fleshed out a
 
 ## Requirements
 
-Most of the requirements can be found in setup.py, but the most important note is that this requires library requires [Django Channels 2+](https://channels.readthedocs.io/en/latest/) -- Channels 1.x is not supported.
+Most of the requirements can be found in setup.py, but the most important note is that this requires library requires [Django Channels 3+](https://channels.readthedocs.io/en/latest/) -- Channels 1.x and 2.x are not supported.
 
 ## Installation
 
@@ -46,6 +46,11 @@ pip install git+https://github.com/AdvocatesInc/django-channels-discord.git@0.1
             Use built-in functions to send basic discord actions
             """
             self.send_action('dm', user_id='SOME_DISCORD_USER_ID', text='your message')
+            self.send_action(
+                'send_to_channel',
+                channel_id='SOME_DISCORD_CHANNEL_ID',
+                text='your message'
+            )
     ```
 
 3. Add your consumer(s) to your router
@@ -66,7 +71,7 @@ pip install git+https://github.com/AdvocatesInc/django-channels-discord.git@0.1
     The interface server can be started by simply running this in the command line:
 
     ```bash
-    discord-irc
+    channels-discord
     ```
 
     The server requires that the `token` and `application` properties be set:
