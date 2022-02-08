@@ -1,6 +1,6 @@
 # Channels-Discord
 
-**Django Channels Discord** is a bridge between Discord (specifically, the [discord.py](https://github.com/Rapptz/discord.py) Python library) and Django's [channels](https://github.com/django/channels)).  It contains both a new interface server for connecting to Discord and Channels consumers -- everything you need to turn your Django app into an Discord chatbot, chat monitoring/moderating service, or whatever else you might use a real-time Discord client to do.
+**Django Channels Discord** is a bridge between Discord (currently using the [pycord](https://github.com/Pycord-Development/pycord) Python library, but this may be a stopgap while we wait for the dust to settle after discord.py's [implosion](https://gist.github.com/Rapptz/4a2f62751b9600a31a0d3c78100287f1)) and Django's [channels](https://github.com/django/channels)).  It contains both a new interface server for connecting to Discord and Channels consumers -- everything you need to turn your Django app into an Discord chatbot, chat monitoring/moderating service, or whatever else you might use a real-time Discord client to do.
 
 This project is more of a stub right now, and will be more further fleshed out as new features are wired up from discord.py.
 
