@@ -13,7 +13,7 @@ Most of the requirements can be found in setup.py, but the most important note i
 Install the package from github:
 
 ```bash
-pip install git+https://github.com/AdvocatesInc/django-channels-discord.git@0.1
+pip install channels-discord
 ```
 
 ## Basic Usage
